@@ -4,15 +4,14 @@ package com.itlize.jooleboot.controller;
 import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class HelloController {
     private static final String[][] castTable = new String[][]{{"+"},{""}, {"A", "B", "C"}, {"D", "E", "F"}, {"G", "H", "I"}
             , {"J", "K", "L"}, {"M", "N", "O"}, {"P", "O", "R", "S"}, {"T", "U", "V"}, {"W", "X", "Y", "Z"}};
@@ -22,6 +21,7 @@ public class HelloController {
         return castTable;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/getAllPermutation")
     public ResponseEntity<?> getAllPerMutation(@RequestParam(name="input")String input) {
         List<String> res = new ArrayList<>();
